@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  fastapi:
+    build:
+      context: .
+      dockerfile: DockerFile.fastapi
+    ports:
+      - "8000:8000"  # Changed to 5000
+    volumes:
+      - /Users/arvindranganathraghuraman/Desktop/Personal_Projects/ML-Projects/Podcast_Listening_Time/mlartifacts/201757001456484594/cad5ba907960403f9e1ffde989808651/artifacts/model/model.pkl:/app/model.pkl:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
+      - podcast-network
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: DockerFile.streamlit
+    ports:
+      - "8501:8501"
+    environment:
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - fastapi
+    networks:
+      - podcast-network
+
+networks:
+  podcast-network:
+    driver: bridge

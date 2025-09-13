@@ -1,0 +1,31 @@
+artifact_path: model
+flavors:
+  lightgbm:
+    code: null
+    data: model.pkl
+    lgb_version: 4.6.0
+    model_class: lightgbm.sklearn.LGBMRegressor
+  python_function:
+    data: model.pkl
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.lightgbm
+    python_version: 3.12.4
+is_signature_from_type_hint: false
+mlflow_version: 2.21.3
+model_size_bytes: 1337219
+model_uuid: 71bb4800e7be49679f655b7577795093
+prompts: null
+run_id: cad5ba907960403f9e1ffde989808651
+signature:
+  inputs: '[{"type": "double", "name": "Podcast_Name", "required": true}, {"type":
+    "double", "name": "Episode_Title", "required": true}, {"type": "double", "name":
+    "Genre", "required": true}, {"type": "double", "name": "Publication_Day", "required":
+    true}, {"type": "double", "name": "Publication_Time", "required": true}, {"type":
+    "double", "name": "Guest_Popularity_percentage", "required": true}, {"type": "double",
+    "name": "Host_Popularity_percentage", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-09-11 00:57:03.554714'
